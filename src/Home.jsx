@@ -73,7 +73,7 @@ export const Home = () => {
                     sx={{ mt: { xs: 4, sm: 2 } }}
                 >
                     <Grid size={{ xs: 12 }}>
-                        <h2>Adress</h2>
+                        <h3>Adress</h3>
                     </Grid>
 
                     <Grid size={{ xs: 12, sm: 5, lg: 4 }}>
@@ -171,7 +171,7 @@ export const Home = () => {
                     sx={{ mt: { xs: 4, sm: 2 } }}
                 >
                     <Grid size={{ xs: 12 }}>
-                        <h2>Department</h2>
+                        <h3>Department</h3>
                     </Grid>
                     <Grid size={{ xs: 12, sm: 5, lg: 4 }}>
                         <FormControl fullWidth variant='outlined'>

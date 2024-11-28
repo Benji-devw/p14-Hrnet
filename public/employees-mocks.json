@@ -1,0 +1,74 @@
+[
+    {
+        "id": 1,
+        "firstName": "John",
+        "lastName": "Doe",
+        "startDate": "01/01/2020",
+        "department": "IT",
+        "dateOfBirth": "01/01/1990",
+        "street": "123 Main St",
+        "city": "Anytown",
+        "state": "NY",
+        "zip": "12345"
+    },
+    {
+        "id": 2,
+        "firstName": "Jane",
+        "lastName": "Smith",
+        "startDate": "01/01/2020",
+        "department": "HR",
+        "dateOfBirth": "01/01/1990",
+        "street": "123 Main St",
+        "city": "Anytown",
+        "state": "NY",
+        "zip": "12345"
+    },
+    {
+        "id": 3,
+        "firstName": "Jim",
+        "lastName": "Brown",
+        "startDate": "01/01/2020",
+        "department": "Finance",
+        "dateOfBirth": "01/01/1990",
+        "street": "123 Main St",
+        "city": "Anytown",
+        "state": "NY",
+        "zip": "12345"
+    },
+    {
+        "id": 4,
+        "firstName": "Jill",
+        "lastName": "White",
+        "startDate": "01/01/2020",
+        "department": "Marketing",
+        "dateOfBirth": "01/01/1990",
+        "street": "123 Main St",
+        "city": "Anytown",
+        "state": "NY",
+        "zip": "12345"
+    },
+    {
+        "id": 5,
+        "firstName": "Jack",
+        "lastName": "Green",
+        "startDate": "01/01/2020",
+        "department": "Sales",
+        "dateOfBirth": "01/01/1990",
+        "street": "123 Main St",
+        "city": "Anytown",
+        "state": "NY",
+        "zip": "12345"
+    },
+    {
+        "id": 6,
+        "firstName": "Jenny",
+        "lastName": "Black",
+        "startDate": "01/01/2020",
+        "department": "IT",
+        "dateOfBirth": "01/01/1990",
+        "street": "123 Main St",
+        "city": "Anytown",
+        "state": "NY",
+        "zip": "12345"
+    }
+]
