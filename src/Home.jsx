@@ -1,13 +1,13 @@
 import {
     FormControl,
     InputLabel,
-    Link,
     MenuItem,
     Select,
     TextField,
     Button,
 } from "@mui/material";
 import Grid from "@mui/material/Grid2";
+import { Link } from "react-router";
 
 export const Home = () => {
     const DepHandleChange = (event) => {
@@ -18,9 +18,7 @@ export const Home = () => {
         <section className='home__wrapper'>
             <h1>HRnet</h1>
 
-            <Link href='https://vite.dev' target='_blank'>
-                View Current Employees
-            </Link>
+            <Link to={"/employees"}>View Current Employees</Link>
 
             <form>
                 <Grid
