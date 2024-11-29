@@ -1,3 +1,4 @@
+import { useState } from "react";
 import {
     FormControl,
     InputLabel,
@@ -8,10 +9,40 @@ import {
 } from "@mui/material";
 import Grid from "@mui/material/Grid2";
 import { Link } from "react-router";
+import { useDispatch } from "react-redux";
+import { createEmployee, setIsLoading } from "./redux/createEmployeeSlice";
 
 export const Home = () => {
-    const DepHandleChange = (event) => {
-        console.log(event.target.value);
+    const dispatch = useDispatch();
+    
+    const [state, setState] = useState({
+        firstName: "",
+        lastName: "",
+        starDate: "",
+        dateOfBirth: "",
+        street: "",
+        city: "",
+        state: "",
+        zipCode: "",
+        department: "",
+    });
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        setIsLoading(true);
+
+        setTimeout(() => {
+            setIsLoading(false);
+            dispatch(createEmployee(state));
+        }, 2000);
+    };
+
+    const handleChange = (event) => {
+        const { name, value } = event.target;
+        setState((prevState) => ({
+            ...prevState,
+            [name]: value,
+        }));
     };
 
     return (
@@ -20,7 +51,7 @@ export const Home = () => {
 
             <Link to={"/employees"}>View Current Employees</Link>
 
-            <form>
+            <form onSubmit={handleSubmit}>
                 <Grid
                     container
                     spacing={2}
@@ -39,6 +70,8 @@ export const Home = () => {
                             name='firstName'
                             label='First Name'
                             variant='outlined'
+                            value={state.firstName}
+                            onChange={handleChange}
                         />
                     </Grid>
 
@@ -50,6 +83,8 @@ export const Home = () => {
                             name='lastName'
                             label='Last Name'
                             variant='outlined'
+                            value={state.lastName}
+                            onChange={handleChange}
                         />
                     </Grid>
 
@@ -57,11 +92,27 @@ export const Home = () => {
                         <TextField
                             fullWidth
                             type='date'
-                            id='dob'
-                            name='dob'
+                            id='startDate'
+                            name='startDate'
+                            label='Start Date'
+                            InputLabelProps={{ shrink: true }}
+                            variant='outlined'
+                            value={state.startDate}
+                            onChange={handleChange}
+                        />
+                    </Grid>
+
+                    <Grid size={{ xs: 12, sm: 5, lg: 4 }}>
+                        <TextField
+                            fullWidth
+                            type='date'
+                            id='dateOfBirth'
+                            name='dateOfBirth'
                             label='Date of Birth'
                             InputLabelProps={{ shrink: true }}
                             variant='outlined'
+                            value={state.dateOfBirth}
+                            onChange={handleChange}
                         />
                     </Grid>
                 </Grid>
@@ -73,7 +124,7 @@ export const Home = () => {
                     sx={{ mt: { xs: 4, sm: 2 } }}
                 >
                     <Grid size={{ xs: 12 }}>
-                        <h3>Adress</h3>
+                        <h3>Address</h3>
                     </Grid>
 
                     <Grid size={{ xs: 12, sm: 5, lg: 4 }}>
@@ -84,6 +135,8 @@ export const Home = () => {
                             name='street'
                             label='Street'
                             variant='outlined'
+                            value={state.street}
+                            onChange={handleChange}
                         />
                     </Grid>
                     <Grid size={{ xs: 12, sm: 5, lg: 4 }}>
@@ -94,6 +147,8 @@ export const Home = () => {
                             name='city'
                             label='City'
                             variant='outlined'
+                            value={state.city}
+                            onChange={handleChange}
                         />
                     </Grid>
                     <Grid size={{ xs: 12, sm: 5, lg: 4 }}>
@@ -104,7 +159,10 @@ export const Home = () => {
                                 id='state'
                                 name='state'
                                 label='State'
+                                value={state.state}
+                                onChange={handleChange}
                             >
+                                <MenuItem value=''>Select a state</MenuItem>
                                 <MenuItem value='AL'>Alabama</MenuItem>
                                 <MenuItem value='AK'>Alaska</MenuItem>
                                 <MenuItem value='AZ'>Arizona</MenuItem>
@@ -156,10 +214,12 @@ export const Home = () => {
                         <TextField
                             fullWidth
                             type='text'
-                            id='zip'
-                            name='zip'
-                            label='Zip Code'
+                            id='zipCode'
+                            name='zipCode'
+                            label='zipCode Code'
                             variant='outlined'
+                            value={state.zipCode}
+                            onChange={handleChange}
                         />
                     </Grid>
                 </Grid>
@@ -183,8 +243,12 @@ export const Home = () => {
                                 id='department'
                                 name='department'
                                 label='Department'
-                                onChange={DepHandleChange}
+                                value={state.department}
+                                onChange={handleChange}
                             >
+                                <MenuItem value=''>
+                                    Select a department
+                                </MenuItem>
                                 <MenuItem value='sales'>Sales</MenuItem>
                                 <MenuItem value='marketing'>Marketing</MenuItem>
                                 <MenuItem value='engineering'>
@@ -204,7 +268,8 @@ export const Home = () => {
                             variant='contained'
                             color='primary'
                         >
-                            Submit
+                            sdqsdsq
+                            {/* {isLoading ? "Creating..." : "Create Employee"} */}
                         </Button>
                     </Grid>
                 </Grid>
