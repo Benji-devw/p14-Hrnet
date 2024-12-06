@@ -9,31 +9,33 @@ import {
 } from "@mui/material";
 import Grid from "@mui/material/Grid2";
 import { Link } from "react-router";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from 'react-redux';
 import { createEmployee, setIsLoading } from "./redux/createEmployeeSlice";
 
 export const Home = () => {
     const dispatch = useDispatch();
-    
+    const {isLoading} = useSelector((state) => state.createEmployee);
+
     const [state, setState] = useState({
+        id: Math.floor(Math.random() * 1000000),
         firstName: "",
         lastName: "",
         starDate: "",
+        department: "",
         dateOfBirth: "",
         street: "",
         city: "",
         state: "",
         zipCode: "",
-        department: "",
     });
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        setIsLoading(true);
+        dispatch(setIsLoading());
 
         setTimeout(() => {
-            setIsLoading(false);
             dispatch(createEmployee(state));
+            dispatch(setIsLoading());
         }, 2000);
     };
 
@@ -45,6 +47,8 @@ export const Home = () => {
         }));
     };
 
+    console.log(isLoading);
+    
     return (
         <section className='home__wrapper'>
             <h1>HRnet</h1>
@@ -268,8 +272,8 @@ export const Home = () => {
                             variant='contained'
                             color='primary'
                         >
-                            sdqsdsq
-                            {/* {isLoading ? "Creating..." : "Create Employee"} */}
+                            {/* Create */}
+                            {isLoading ? "Creating..." : "Create Employee"}
                         </Button>
                     </Grid>
                 </Grid>

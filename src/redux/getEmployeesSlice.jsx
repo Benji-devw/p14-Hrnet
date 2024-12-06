@@ -1,52 +1,41 @@
-import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 
-const initialState = {
-    employees: localStorage.getItem("employees") || [],
-    isLoading: false,
-    errorMessage: null,
-};
-
-// getEmployees formulaire
-export const getEmployees = createAsyncThunk("employees/getEmployees", async () => {
-    // const response = await fetch("https://reqres.in/api/users");
-    // return response.json();
-    const res = localStorage.getItem("employees");
-    return res;
-});
-
-
+// get employees from localStorage
+export const fetchEmployees = createAsyncThunk(
+    "employees/fetchEmployees",
+    async () => {
+        const storedEmployees = localStorage.getItem("employees");
+        return storedEmployees ? JSON.parse(storedEmployees) : [];
+    }
+);
 
 const employeesSlice = createSlice({
     name: "employees",
-    initialState,
+    initialState: {
+        employees: [],
+        status: "idle",
+        error: null,
+    },
     reducers: {
-        setEmployees: (state, { payload }) => {
-            state.employees = payload;
-        },
-        setIsLoading: (state) => {
-            state.isLoading = !state.isLoading;
-        },
-        setErrorMessage: (state, { payload }) => {
-            state.errorMessage = payload;
+        setEmployees: (state, action) => {
+            state.employees = action.payload;
         },
     },
-
     extraReducers: (builder) => {
         builder
-            .addCase(getEmployees.pending, (state) => {
-                state.isLoading = true;
+            .addCase(fetchEmployees.pending, (state) => {
+                state.status = "loading";
             })
-            .addCase(getEmployees.fulfilled, (state, { payload }) => {
-                state.employees = payload.data;
-                state.isLoading = false;
+            .addCase(fetchEmployees.fulfilled, (state, action) => {
+                state.status = "succeeded";
+                state.employees = action.payload;
             })
-            .addCase(getEmployees.rejected, (state, { payload }) => {
-                state.errorMessage = payload.message;
-                state.isLoading = false;
+            .addCase(fetchEmployees.rejected, (state, action) => {
+                state.status = "failed";
+                state.error = action.error.message;
             });
-    }
+    },
 });
 
-export const { setEmployees, setIsLoading, setErrorMessage } = employeesSlice.actions;
-
+export const { setEmployees } = employeesSlice.actions;
 export default employeesSlice.reducer;

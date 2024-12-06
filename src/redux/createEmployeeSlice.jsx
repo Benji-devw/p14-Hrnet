@@ -18,11 +18,11 @@ const employeesSlice = createSlice({
     name: "employees",
     initialState,
     reducers: {
-        setEmployees: (state, { payload }) => {
-            state.employees = payload;
-        },
         setIsLoading: (state) => {
             state.isLoading = !state.isLoading;
+        },
+        setEmployees: (state, { payload }) => {
+            state.employees = payload;
         },
         setErrorMessage: (state, { payload }) => {
             state.errorMessage = payload;
@@ -34,8 +34,8 @@ const employeesSlice = createSlice({
             .addCase(createEmployee.pending, (state) => {
                 state.isLoading = true;
             })
-            .addCase(createEmployee.fulfilled, (state, { payload }) => {
-                state.employees.push(payload);
+            .addCase(createEmployee.fulfilled, (state) => {
+                // state.employees.push(payload);
                 state.isLoading = false;
             })
             .addCase(createEmployee.rejected, (state, { payload }) => {

@@ -9,7 +9,7 @@
         "street": "123 Main St",
         "city": "Paris",
         "state": "France",
-        "zip": "12345"
+        "zipCode": "12345"
     },
     {
         "id": 2,
@@ -21,7 +21,7 @@
         "street": "123 Main St",
         "city": "Anytown",
         "state": "NY",
-        "zip": "12345"
+        "zipCode": "12345"
     },
     {
         "id": 3,
@@ -33,7 +33,7 @@
         "street": "123 Main St",
         "city": "Anytown",
         "state": "NY",
-        "zip": "12345"
+        "zipCode": "12345"
     },
     {
         "id": 4,
@@ -45,7 +45,7 @@
         "street": "123 Main St",
         "city": "Anytown",
         "state": "NY",
-        "zip": "12345"
+        "zipCode": "12345"
     },
     {
         "id": 5,
@@ -57,7 +57,7 @@
         "street": "123 Main St",
         "city": "Anytown",
         "state": "NY",
-        "zip": "12345"
+        "zipCode": "12345"
     },
     {
         "id": 6,
@@ -69,6 +69,6 @@
         "street": "123 Main St",
         "city": "Anytown",
         "state": "NY",
-        "zip": "12345"
+        "zipCode": "12345"
     }
 ]
