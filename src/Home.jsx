@@ -9,13 +9,17 @@ import {
 } from "@mui/material";
 import Grid from "@mui/material/Grid2";
 import { Link } from "react-router";
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch, useSelector } from "react-redux";
 import { createEmployee, setIsLoading } from "./redux/createEmployeeSlice";
+import { Modal } from "@benji-devw/dev-doc-patterns";
 
 export const Home = () => {
     const dispatch = useDispatch();
-    const {isLoading} = useSelector((state) => state.createEmployee);
-
+    const { isLoading } = useSelector((state) => state.createEmployee);
+    const [isOpen, setIsopen] = useState(false);
+    const closeModal = () => {
+        setIsopen(false);
+    };
     const [state, setState] = useState({
         id: Math.floor(Math.random() * 1000000),
         firstName: "",
@@ -48,11 +52,19 @@ export const Home = () => {
     };
 
     console.log(isLoading);
-    
+
     return (
         <section className='home__wrapper'>
             <h1>HRnet</h1>
-
+            <button className='open-modal-btn' onClick={() => setIsopen(true)}>
+                Open Middle Modal
+            </button>
+            {isOpen && (
+                <Modal onClose={closeModal} className='modal-content'>
+                    <h1>Middle Modal</h1>
+                    <p>Middle Modal content</p>
+                </Modal>
+            )}
             <Link to={"/employees"}>View Current Employees</Link>
 
             <form onSubmit={handleSubmit}>

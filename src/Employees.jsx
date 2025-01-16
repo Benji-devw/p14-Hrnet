@@ -1,7 +1,6 @@
 import { useEffect } from "react";
 import { DataGrid, GridToolbar } from "@mui/x-data-grid";
 import Paper from "@mui/material/Paper";
-// import employeesMocks from "../public/employees-mocks.json";
 import { Link } from "react-router";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchEmployees } from "./redux/getEmployeesSlice";
@@ -45,7 +44,7 @@ export default function Employees() {
     useEffect(() => {
         dispatch(fetchEmployees());
     }, [dispatch]);
-
+    
     return (
         <section className='employees__wrapper'>
             <h1>Current Employees</h1>

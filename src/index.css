@@ -40,6 +40,14 @@ h1 {
   line-height: 1.1;
 }
 
+.employees__wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+  padding: 1rem;
+}
+
 /* button {
   border-radius: 8px;
   border: 1px solid transparent;

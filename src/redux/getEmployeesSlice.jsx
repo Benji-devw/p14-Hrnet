@@ -1,11 +1,16 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import employeesMocks from "../../public/employees-mocks.json";
 
 // get employees from localStorage
 export const fetchEmployees = createAsyncThunk(
     "employees/fetchEmployees",
     async () => {
-        const storedEmployees = localStorage.getItem("employees");
-        return storedEmployees ? JSON.parse(storedEmployees) : [];
+        if (localStorage.getItem("employees")) {
+            return JSON.parse(localStorage.getItem("employees"));
+        } else {
+            localStorage.setItem("employees", JSON.stringify(employeesMocks));
+            return employeesMocks;
+        }
     }
 );
 
