@@ -11,14 +11,14 @@ import Grid from "@mui/material/Grid2";
 import { Link } from "react-router";
 import { useDispatch, useSelector } from "react-redux";
 import { createEmployee, setIsLoading } from "./redux/createEmployeeSlice";
-import { Modal } from "@benji-devw/dev-doc-patterns";
+import { Modal } from "@benji-devw/dev-docs";
 
 export const Home = () => {
     const dispatch = useDispatch();
     const { isLoading } = useSelector((state) => state.createEmployee);
-    const [isOpen, setIsopen] = useState(false);
+    const [openModal, setOpenModal] = useState(false);
     const closeModal = () => {
-        setIsopen(false);
+        setOpenModal(false);
     };
     const [state, setState] = useState({
         id: Math.floor(Math.random() * 1000000),
@@ -38,6 +38,7 @@ export const Home = () => {
         dispatch(setIsLoading());
 
         setTimeout(() => {
+            setOpenModal(true);
             dispatch(createEmployee(state));
             dispatch(setIsLoading());
         }, 2000);
@@ -51,20 +52,16 @@ export const Home = () => {
         }));
     };
 
-    console.log(isLoading);
-
     return (
         <section className='home__wrapper'>
-            <h1>HRnet</h1>
-            <button className='open-modal-btn' onClick={() => setIsopen(true)}>
-                Open Middle Modal
-            </button>
-            {isOpen && (
+            {openModal && (
                 <Modal onClose={closeModal} className='modal-content'>
-                    <h1>Middle Modal</h1>
-                    <p>Middle Modal content</p>
+                    <h1>Employé Créé</h1>
+                    <p>{state.firstName} a bien été ajouté à la base.</p>
                 </Modal>
             )}
+
+            <h1>HRnet</h1>
             <Link to={"/employees"}>View Current Employees</Link>
 
             <form onSubmit={handleSubmit}>
@@ -283,9 +280,9 @@ export const Home = () => {
                             type='submit'
                             variant='contained'
                             color='primary'
+                            // onClick={() => setIsopen(true)}
                         >
-                            {/* Create */}
-                            {isLoading ? "Creating..." : "Create Employee"}
+                            {isLoading ? "Creation..." : "Ajouter un Employé"}
                         </Button>
                     </Grid>
                 </Grid>
