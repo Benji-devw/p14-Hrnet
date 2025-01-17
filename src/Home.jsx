@@ -55,11 +55,12 @@ export const Home = () => {
     return (
         <section className='home__wrapper'>
             {openModal && (
-                <Modal onClose={closeModal} className='modal-content'>
+                <Modal onClose={closeModal} className='modal-content' position="right">
                     <h1>Employé Créé</h1>
-                    <p>{state.firstName} a bien été ajouté à la base.</p>
+                    <p><b>{state.firstName}</b> a bien été ajouté à la base.</p>
                 </Modal>
             )}
+            <button onClick={() => setOpenModal(true)}>Open Modal</button>
 
             <h1>HRnet</h1>
             <Link to={"/employees"}>View Current Employees</Link>
@@ -280,7 +281,6 @@ export const Home = () => {
                             type='submit'
                             variant='contained'
                             color='primary'
-                            // onClick={() => setIsopen(true)}
                         >
                             {isLoading ? "Creation..." : "Ajouter un Employé"}
                         </Button>
