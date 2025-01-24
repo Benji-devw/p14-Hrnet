@@ -11,26 +11,26 @@ import Grid from "@mui/material/Grid2";
 import { Link } from "react-router";
 import { useDispatch, useSelector } from "react-redux";
 import { createEmployee, setIsLoading } from "./redux/createEmployeeSlice";
-// import { Modal } from "@benji-devw/dev-docs";
+import { Modal } from '@benji-devw/dev-docs';
 
 const Home = () => {
     const dispatch = useDispatch();
     const { isLoading } = useSelector((state) => state.createEmployee);
-    // const [openModal, setOpenModal] = useState(false);
-    // const closeModal = () => {
-    //     setOpenModal(false);
-    // };
+    const [openModal, setOpenModal] = useState(false);
+    const closeModal = () => {
+        setOpenModal(false);
+    };
     const [state, setState] = useState({
         id: Math.floor(Math.random() * 1000000),
         firstName: "",
         lastName: "",
-        starDate: "",
-        department: "",
+        startDate: "",
         dateOfBirth: "",
         street: "",
         city: "",
         state: "",
         zipCode: "",
+        department: "",
     });
 
     const handleSubmit = (e) => {
@@ -38,7 +38,7 @@ const Home = () => {
         dispatch(setIsLoading());
 
         setTimeout(() => {
-            // setOpenModal(true);
+            setOpenModal(true);
             dispatch(createEmployee(state));
             dispatch(setIsLoading());
         }, 2000);
@@ -54,12 +54,13 @@ const Home = () => {
 
     return (
         <section className='home__wrapper'>
-            {/* {openModal && (
+            {/* <button className="btn-test" onClick={() => setOpenModal(true)}>open modal</button> */}
+            {openModal && (
                 <Modal onClose={closeModal} className='modal-content' position="right">
                     <h1>Employé Créé</h1>
                     <p><b>{state.firstName}</b> a bien été ajouté à la base.</p>
                 </Modal>
-            )} */}
+            )}
             
             <h1>HRnet</h1>
             <Link to={"/employees"}>View Current Employees</Link>
@@ -229,7 +230,7 @@ const Home = () => {
                             type='text'
                             id='zipCode'
                             name='zipCode'
-                            label='zipCode Code'
+                            label='ZipCode'
                             variant='outlined'
                             value={state.zipCode}
                             onChange={handleChange}
