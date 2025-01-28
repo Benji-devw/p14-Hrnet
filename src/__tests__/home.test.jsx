@@ -21,12 +21,6 @@ describe("Home", () => {
         expect(screen.getByText("HRnet")).toBeInTheDocument();
     });
 
-    it.skip("should open modal on button click", () => {
-        const button = screen.getByText("open modal");
-        fireEvent.click(button);
-        expect(screen.getByText("Employé Créé")).toBeInTheDocument();
-    });
-
     it("should fill form and submit", () => {
         const inputName = screen.getByLabelText("First Name");
         const inputLastName = screen.getByLabelText("Last Name");

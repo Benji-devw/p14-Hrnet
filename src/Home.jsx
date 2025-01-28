@@ -54,9 +54,8 @@ const Home = () => {
 
     return (
         <section className='home__wrapper'>
-            {/* <button className="btn-test" onClick={() => setOpenModal(true)}>open modal</button> */}
             {openModal && (
-                <Modal onClose={closeModal} className='modal-content' position="right">
+                <Modal onClose={closeModal} className='modal-content' position="center">
                     <h1>Employé Créé</h1>
                     <p><b>{state.firstName}</b> a bien été ajouté à la base.</p>
                 </Modal>
