@@ -6,6 +6,9 @@
 npm install
 npm run test
 npm run dev
+
+npm run build
+npm run preview
 ```
 
 ## Conversion du projet HRNet 

@@ -22,6 +22,7 @@ describe("Home", () => {
     });
 
     it("should fill form and submit", () => {
+        // Récupérer les champs du formulaire
         const inputName = screen.getByLabelText("First Name");
         const inputLastName = screen.getByLabelText("Last Name");
         const inputStartDate = screen.getByLabelText("Start Date");
@@ -32,6 +33,7 @@ describe("Home", () => {
         const inputDepartment = screen.getByLabelText("Department");
         const submitForm = screen.getByText("Ajouter un Employé");
 
+        // Remplir les champs du formulaire
         fireEvent.change(inputName, { target: { value: "John" } });
         fireEvent.change(inputLastName, { target: { value: "Doe" } });
         fireEvent.change(inputStartDate, { target: { value: "2021-01-01" } });
@@ -45,8 +47,10 @@ describe("Home", () => {
         const departmentOption = screen.getByText("Sales");
         fireEvent.click(departmentOption);
 
+        // Soumettre le formulaire
         fireEvent.click(submitForm);
 
+        // Vérifier que le message de succès est affiché dans la modale
         setTimeout(() => {
             expect(screen.getByText("Employé Créé")).toBeInTheDocument();
         }, 2500);
