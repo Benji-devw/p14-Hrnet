@@ -15,7 +15,7 @@ import { Modal } from '@benji-devw/dev-docs';
 import statesList from "../public/statesList.json";
 
 
-const Home = () => {
+const CreateEmployee = () => {
     const dispatch = useDispatch();
     const { isLoading } = useSelector((state) => state.createEmployee);
     const [openModal, setOpenModal] = useState(false);
@@ -55,7 +55,7 @@ const Home = () => {
     };
 
     return (
-        <section className='home__wrapper'>
+        <section className='create-employee__wrapper'>
             {openModal && (
                 <Modal onClose={closeModal} className='modal-content' position="center">
                     <h1>Employé Créé</h1>
@@ -254,4 +254,4 @@ const Home = () => {
     );
 };
 
-export default Home;
+export default CreateEmployee;

@@ -1,10 +1,10 @@
 import "./App.css";
-import Home from "./Home";
+import CreateEmployee from "./CreateEmployee";
 
 function App() {
     return (
         <>
-            <Home />
+            <CreateEmployee />
         </>
     );
 }

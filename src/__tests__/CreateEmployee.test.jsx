@@ -3,15 +3,15 @@ import { render, screen, fireEvent } from "@testing-library/react";
 import { Provider } from "react-redux";
 import { BrowserRouter } from "react-router";
 import { describe, it, expect, beforeEach } from "vitest";
-import Home from "../Home";
+import CreateEmployee from "../CreateEmployee";
 import store from "../redux/store";
 
-describe("Home", () => {
+describe("CreateEmployee test", () => {
     beforeEach(() => {
         render(
             <Provider store={store}>
                 <BrowserRouter>
-                    <Home />
+                    <CreateEmployee />
                 </BrowserRouter>
             </Provider>
         );

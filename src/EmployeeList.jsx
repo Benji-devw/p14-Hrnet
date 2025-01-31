@@ -35,7 +35,7 @@ const columns = [
 
 const paginationModel = { page: 0, pageSize: 5 };
 
-export default function Employees() {
+export default function EmployeeList() {
     const dispatch = useDispatch();
     const employees = useSelector((state) => state.employees.employees);
     // const status = useSelector((state) => state.employees.status);
