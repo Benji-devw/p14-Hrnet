@@ -58,7 +58,7 @@ const CreateEmployee = () => {
         <section className='create-employee__wrapper'>
             {openModal && (
                 <Modal onClose={closeModal} className='modal-content' position="center">
-                    <h1>Employé Créé</h1>
+                    <h2>Employé Créé</h2>
                     <p><b>{state.firstName}</b> a bien été ajouté à la base.</p>
                 </Modal>
             )}
@@ -87,6 +87,7 @@ const CreateEmployee = () => {
                             variant='outlined'
                             value={state.firstName}
                             onChange={handleChange}
+                            required
                         />
                     </Grid>
 
@@ -100,6 +101,7 @@ const CreateEmployee = () => {
                             variant='outlined'
                             value={state.lastName}
                             onChange={handleChange}
+                            required
                         />
                     </Grid>
 
@@ -114,6 +116,7 @@ const CreateEmployee = () => {
                             variant='outlined'
                             value={state.startDate}
                             onChange={handleChange}
+                            required
                         />
                     </Grid>
 
@@ -128,6 +131,7 @@ const CreateEmployee = () => {
                             variant='outlined'
                             value={state.dateOfBirth}
                             onChange={handleChange}
+                            required
                         />
                     </Grid>
                 </Grid>
@@ -152,6 +156,7 @@ const CreateEmployee = () => {
                             variant='outlined'
                             value={state.street}
                             onChange={handleChange}
+                            required
                         />
                     </Grid>
                     <Grid size={{ xs: 12, sm: 5, lg: 4 }}>
@@ -164,6 +169,7 @@ const CreateEmployee = () => {
                             variant='outlined'
                             value={state.city}
                             onChange={handleChange}
+                            required
                         />
                     </Grid>
                     <Grid size={{ xs: 12, sm: 5, lg: 4 }}>
@@ -176,6 +182,7 @@ const CreateEmployee = () => {
                                 label='State'
                                 value={state.state}
                                 onChange={handleChange}
+                                required
                             >
                                 <MenuItem value=''>Select a state</MenuItem>
                                 {statesList.map((state) => (
@@ -197,6 +204,7 @@ const CreateEmployee = () => {
                             variant='outlined'
                             value={state.zipCode}
                             onChange={handleChange}
+                            required
                         />
                     </Grid>
                 </Grid>
@@ -222,6 +230,7 @@ const CreateEmployee = () => {
                                 label='Department'
                                 value={state.department}
                                 onChange={handleChange}
+                                required
                             >
                                 <MenuItem value=''>
                                     Select a department
