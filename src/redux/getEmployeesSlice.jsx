@@ -1,5 +1,5 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import employeesMocks from "../../public/employees-mocks.json";
+import employeesMocks from "../assets/employees-mocks.json";
 
 // get employees from localStorage
 export const fetchEmployees = createAsyncThunk(

@@ -12,7 +12,7 @@ import { Link } from "react-router";
 import { useDispatch, useSelector } from "react-redux";
 import { createEmployee, setIsLoading } from "./redux/createEmployeeSlice";
 import { Modal } from '@benji-devw/dev-docs';
-import statesList from "../public/statesList.json";
+import statesList from "./assets/statesList.json";
 
 
 const CreateEmployee = () => {
