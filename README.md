@@ -14,10 +14,11 @@ npm run preview
 ## Conversion du projet HRNet 
 - Conversion > vite + react
 - Gestion des routes > react-router 
-- Gestion d'état > react-redux & localstorage & mocks.json
 - Gestion du style > styled-components & material-ui
+- Gestion d'état > react-redux & localstorage & mocks.json
 - Gestion des tests > vitest
 - Export tests de performence PDF et JSON
+- Convertion d'un plugin "Modal"
 
 
 ## Todo

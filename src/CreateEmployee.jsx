@@ -22,6 +22,7 @@ const CreateEmployee = () => {
     const closeModal = () => {
         setOpenModal(false);
     };
+    
     const [state, setState] = useState({
         id: Math.floor(Math.random() * 1000000),
         firstName: "",
@@ -62,7 +63,10 @@ const CreateEmployee = () => {
                     <p><b>{state.firstName}</b> a bien été ajouté à la base.</p>
                 </Modal>
             )}
-            
+
+            {/* Test du composant Modal */}
+            <button onClick={() => setOpenModal(true)}>Open Modal</button>
+
             <h1>HRnet</h1>
             <Link to={"/employees"}>View Current Employees</Link>
 
